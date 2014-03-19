@@ -2533,7 +2533,7 @@ function! s:PositionCursor ( placement, flag_mode, pos1, pos2 )
 	" :TODO:12.08.2013 11:03:WM: changeable syntax?
 	" :TODO:12.08.2013 12:00:WM: change behavior?
 	"
-	exe ":".a:pos1
+	call setpos ( '.', [ bufnr('%'), a:pos1, 1, 0 ] )
 	let mtch = search( '<CURSOR>\|{CURSOR}', 'c', a:pos2 )
 	if mtch != 0
 		" tag found (and cursor moved, we are now at the position of the match)
